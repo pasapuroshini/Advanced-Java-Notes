@@ -1,0 +1,143 @@
+# Servlet
+## Introduction to Servlet
+<img width="312" alt="Screenshot 2025-01-18 at 11 36 34 AM" src="https://github.com/user-attachments/assets/7d4dc96e-af72-44f5-a724-2e6c64bac5c0" />
+
+<img width="305" alt="Screenshot 2025-01-18 at 11 36 48 AM" src="https://github.com/user-attachments/assets/2d0009ce-bd29-4445-bb57-cf8a3d626a90" />
+
+<img width="297" alt="Screenshot 2025-01-18 at 11 37 05 AM" src="https://github.com/user-attachments/assets/e1dc4fb0-77c9-45a6-a6e4-a27c40075552" />
+
+1.dynamic request goes to web container.
+2.servelet is basically a Java file which can take the request from the client on the internet and it can process that request it can provide you a response in the format of HTML page right so this servelet will convert your request and it will take your request it will fetch the values it will
+process the information and it will send the HTML page.
+
+
+<img width="302" alt="Screenshot 2025-01-18 at 11 50 37 AM" src="https://github.com/user-attachments/assets/08b65ed7-736a-4632-8ce5-ff30ac5ce1de" />
+
+
+<img width="422" alt="Screenshot 2025-01-18 at 12 11 09 PM" src="https://github.com/user-attachments/assets/09c6f35b-1ec2-4746-af21-6df033ff29e5" />
+
+# Notes: How Servlet Works  
+
+## 1. Introduction to Servlets  
+- **Servlet**: A Java program that handles client requests and generates dynamic web content.  
+- **Web Container**: A server-side application (e.g., Tomcat) that manages servlet lifecycle and requests.  
+
+---
+
+## 2. Web Communication Flow  
+1. **Static Request**:
+   - **Request** → **Server** → **Static File (HTML, CSS, JS)** → **Response**.  
+
+2. **Dynamic Request**:
+   - **Request** → **Server** → **Web Container** → **Servlet** → **Dynamic Response** (HTML/JSON/XML).
+
+---
+
+## 3. Components of Servlet Environment  
+- **Client**: Sends HTTP requests (e.g., browsers).  
+- **Server**: Routes requests to a web container.  
+- **Web Container**:
+  - Hosts and manages servlets.  
+  - Examples: Apache Tomcat, GlassFish, JBoss.  
+- **Servlet**:
+  - Processes requests, performs operations, and sends a response.  
+
+---
+
+## 4. Deployment Descriptor (`web.xml`)  
+- **Purpose**: Maps client requests (URLs) to specific servlets.  
+- **Structure**:
+  - `<servlet>`: Defines a servlet with its class name.  
+  - `<servlet-mapping>`: Maps a URL pattern to a servlet.  
+
+### Example:
+```xml
+<servlet>
+    <servlet-name>AddServlet</servlet-name>
+    <servlet-class>com.example.AddServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>AddServlet</servlet-name>
+    <url-pattern>/add</url-pattern>
+</servlet-mapping>
+```
+
+---
+
+## 5. Process Flow for Dynamic Requests  
+1. **Client Request**: Sends a URL request to the server (e.g., `abc.html`).  
+2. **Server**:
+   - Routes the request to the web container for dynamic processing.  
+3. **Web Container**:
+   - Identifies the servlet to handle the request using `web.xml`.  
+   - Sends the request to the appropriate servlet.  
+4. **Servlet**:
+   - Fetches request data, processes it, and generates a dynamic response (HTML/JSON/XML).  
+5. **Response**: The generated content is sent back to the client.
+
+---
+
+## 6. Creating a Simple Servlet  
+### Steps:
+1. Create a Java class extending `HttpServlet`.  
+2. Override methods like `doGet()` or `doPost()`.  
+3. Map the servlet to a URL in `web.xml` or using annotations.  
+
+### Example:
+```java
+import java.io.IOException;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class AddServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        int num1 = Integer.parseInt(req.getParameter("num1"));
+        int num2 = Integer.parseInt(req.getParameter("num2"));
+        int sum = num1 + num2;
+
+        res.setContentType("text/html");
+        res.getWriter().println("<h1>Result: " + sum + "</h1>");
+    }
+}
+```
+
+---
+
+## 7. Replacing `web.xml` with Annotations (Servlet 3.0)  
+- **Why?** Java developers prefer avoiding XML configurations.  
+- **Solution**: Use annotations like `@WebServlet`.  
+
+### Example:
+```java
+@WebServlet("/add")
+public class AddServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        // Servlet logic here
+    }
+}
+```
+
+---
+
+## 8. Servlet Lifecycle  
+1. **Initialization (`init()`)**: Sets up the servlet.  
+2. **Request Handling (`doGet()`, `doPost()`)**: Processes client requests.  
+3. **Termination (`destroy()`)**: Cleans up resources.  
+
+---
+
+## 9. Advantages of Servlets  
+- Platform-independent.  
+- Secure and robust.  
+- Handles both static and dynamic content.  
+- Easily integrates with other Java technologies (JSP, JDBC, etc.).
+
+---
+
+## 10. Summary of Workflow  
+1. **Request** → **Server** → **Web Container** → **Servlet**.  
+2. **Servlet** generates a response (HTML, JSON, XML).  
+3. **Response** is sent back to the client.  
+4. **Mapping** is configured via `web.xml` or annotations.
