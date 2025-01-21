@@ -41,5 +41,4 @@ By default it is get method.
 <img width="712" alt="Screenshot 2025-01-20 at 11 44 17 PM" src="https://github.com/user-attachments/assets/0608ec0a-a29c-4d27-9022-06e4b29a78c0" />
 
 
-![Uploading Screenshot 2025-01-21 at 1.22.59 PM.png…]()
 
