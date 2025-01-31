@@ -12,14 +12,18 @@
   <servlet-name>HelloServlet</servlet-name>
   <url-pattern>/hello</url-pattern>
   </servlet-mapping>
+  
   ```
 -Here, whenever there is a “/hello” URL coming from the client request, we are mapping it to the “HelloServlet” class. Instead of providing these mappings in the web.xml file, we can simply provide an annotation in the Servlet as below,
+
+
   ```
 @WebServlet("/hello") 
 public class HelloServlet extends HttpServlet { 
     // Code to be executed... 
 }
 ```
+
 
 
 # Example 1:
@@ -73,6 +77,7 @@ public class HelloServlet extends HttpServlet {
 }
 ```
 -When user clicks submit for the welcome page, container will process the “@WebServlet(“/hello”)” annotation and maps the “HelloServlet” class.
+
 -As the method is mentioned as “post” in Html page, container will execute “doPost()” method in “HelloServlet” class.
 
 
