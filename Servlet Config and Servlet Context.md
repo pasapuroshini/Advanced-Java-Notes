@@ -6,3 +6,4 @@ ServletConfig and ServletContext, both are objects created at the time of servle
 
 
 
+<img width="1162" alt="Screenshot 2025-02-01 at 9 19 37 PM" src="https://github.com/user-attachments/assets/242770ae-1d7b-481b-8299-d8a5c08c0da7" />
