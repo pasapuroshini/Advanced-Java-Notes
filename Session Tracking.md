@@ -1,4 +1,4 @@
-Here are your **prepared notes** on **Session Tracking in Servlets** in an **important format**:
+
 
 **Session Tracking in Servlets**
 ================================
