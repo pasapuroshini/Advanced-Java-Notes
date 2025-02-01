@@ -66,7 +66,9 @@ import javax.servlet.http.HttpSession;
 public class SessionExample extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(); // Create session if it doesn't exist
+
         session.setAttribute("username", "JohnDoe"); // Store session data
+
         response.getWriter().println("Session Created. User: " + session.getAttribute("username"));
     }
 }
@@ -79,8 +81,11 @@ public class SessionExample extends HttpServlet {
 -----------------------------
 
 ✔ Works even if cookies are disabled
+
 ✔ Can store **objects** (not just text)
+
 ✔ Secure, since data is stored on the **server-side**
+
 ✔ No size limitation like cookies
 
 **Conclusion**
