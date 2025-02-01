@@ -41,7 +41,10 @@ If a request comes to LoginServlet and is forwarded to dashboard.jsp, the browse
 
 ### **Key Features:**
 
-✔ **Faster** (happens inside the server).✔ **Same request object is used** (data is preserved).✔ **Client URL remains unchanged**.✔ **Better for intra-application navigation**.
+✔ **Faster** (happens inside the server)
+.✔ **Same request object is used** (data is preserved).
+✔ **Client URL remains unchanged**.
+✔ **Better for intra-application navigation**.
 
 
 **2. sendRedirect (Client-Side Redirect)**
@@ -71,16 +74,65 @@ response.sendRedirect("https://example.com/newPage.jsp");
 
 
 
+<img width="714" alt="Screenshot 2025-02-01 at 10 44 46 PM" src="https://github.com/user-attachments/assets/b80ef333-745c-4bea-8d30-113672529ff2" />
+
+
+
+**Which One to Use?**
+---------------------
+
+🔹 **Use RequestDispatcher** when:
+
+*   You need to pass request attributes.
+    
+*   You want to keep the **URL unchanged**.
+    
+*   The navigation is **within the same application**.
+    
+
+🔹 **Use sendRedirect** when:
+
+*   You want to redirect to an **external URL**.
+    
+*   You want to **change the browser’s URL**.
+    
+*   You don’t need to keep request data.
 
 
 
 
-![Uploading Screenshot 2025-02-01 at 10.41.14 PM.png…]()
+### **Real-World Example**
 
+#### **1️⃣ Using RequestDispatcher**
 
+Imagine you have a login page, and after successful authentication, you want to **forward** the request to dashboard.jsp **without changing the URL**.
 
+```
+if(authenticated) {
+    RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
+    rd.forward(request, response);
+} else {
+    out.println("Invalid credentials");
+}
+```
 
+*   The URL remains login.jsp, but the content is from dashboard.jsp.
+    
 
+#### **2️⃣ Using sendRedirect**
+
+If you want to **redirect** users to a different domain (e.g., Google login):
+```
+response.sendRedirect("https://accounts.google.com/");
+```
+*   The **browser URL changes**, and the user is sent to **Google login**.
+    
+
+### **Conclusion**
+
+*   **Use RequestDispatcher for internal forwards (better performance, retains data).**
+    
+*   **Use sendRedirect for external navigation or when you want to change the URL.** 🚀
 
 
 
