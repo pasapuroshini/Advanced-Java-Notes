@@ -7,6 +7,10 @@
 
 A **session** is the time interval in which two systems communicate with each other. In **HTTP protocol**, the state of communication is **not maintained**. Therefore, **Session Tracking** is used in web applications to maintain the user's state (data).
 
+
+<img width="889" alt="Screenshot 2025-02-01 at 9 35 32 PM" src="https://github.com/user-attachments/assets/0b97f895-e30d-4154-ae65-95f9a80161ef" />
+
+
 ### **Why Session Tracking is Needed?**
 
 Since HTTP is **stateless**, the web applications must use session tracking techniques to recognize a user across multiple requests.
