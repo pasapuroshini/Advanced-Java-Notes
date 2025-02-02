@@ -1,2 +1,0 @@
-# ServletConfig and Servlet Context
-`ServletConfig` and `ServletContext`, both are objects created at the time of servlet initialization and used to provide some initial parameters or configuration information to the servlet. But, the difference lies in the fact that `information shared by ServletConfig is for a specific servlet`, while  `information shared by ServletContext is available for all servlets` in the web application.
