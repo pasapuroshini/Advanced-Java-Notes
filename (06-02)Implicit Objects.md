@@ -6,13 +6,13 @@
 
 
  ## Implicit Objects
-- -Implicit Objects are set of Java objects that JSP Container makes available to developers on each page
--
-- -These objects may be accessed as built-in variables via scripting elements and can also be accessed programmatically by JavaBeans and Servlets.JSP provide you Total 9 implicit objects which are as follows.
+ Implicit Objects are set of Java objects that JSP Container makes available to developers on each page.
+ 
+ These objects may be accessed as built-in variables via scripting elements and can also be accessed programmatically by JavaBeans and Servlets.JSP provide you Total 9 implicit objects which are as follows.
 
-- request: This is the object of 'HttpServletRequest' class associated with the request.
+request: This is the object of 'HttpServletRequest' class associated with the request.
 
--response: This is the object of  'HttpServletResponse' class associated with the response to the client.
+response: This is the object of  'HttpServletResponse' class associated with the response to the client.
 
 -config: This is the object of `ServletConfig` class associated with the page.
 
